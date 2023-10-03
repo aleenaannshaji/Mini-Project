@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <script>
+        // Define an object to store student IDs as they are entered
+        const studentIds = {};
+
+        function validateStudentId(studentId) {
+            if (studentId in studentIds) {
+                return false; // Student ID already exists
+            }
+            return true; // Student ID is unique
+        }
+
+        function validatePhoneNumber(phoneNumber) {
+            // Check if the phone number has exactly 10 digits
+            return /^\d{10}$/.test(phoneNumber);
+        }
+
+        function validateForm() {
+            const staffId = document.getElementById("studentId").value;
+            const studentName = document.getElementById("studentName").value;
+            const dob = document.getElementById("dob").value;
+            const address = document.getElementById("address").value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const email = document.getElementById("email").value;
+            const jobtitle = document.getElementById("Job Title").value;
+            const department = document.getElementById("department").value;
+            const photo = document.getElementById("photo").value;
+
+            // Check for duplicate student ID
+            if (!validateStaffId(staffId)) {
+                alert("Staff ID already exists");
+                return false;
+            }
+
+            // Check phone number format
+            if (!validatePhoneNumber(phoneNumber)) {
+                alert("Phone number must be 10 digits");
+                return false;
+            }
+
+            // You can add more validation logic here if needed
+
+            // Here, you can send the form data to the server for processing and database insertion.
+            // You'll need server-side code to handle this part.
+
+            // Add the staff ID to the list of entered student IDs
+            staffIds[staffId] = true;
+
+            return true; // Return true to submit the form
+        }
+    </script>
+</head>
+<body>
+    <h1>Staff Registration</h1>
+    <form onsubmit="return validateForm()">
+        <label for="staffId">Staff ID:</label>
+        <input type="text" id="staffId" name="staffId" required><br><br>
+
+        <label for="staffName">Staff Name:</label>
+        <input type="text" id="staffName" name="staffName" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea><br><br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="jobtitle">Job Title:</label>
+        <input type="text" id="jobtitle" name="jobtitle" required><br><br>
+
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department" required><br><br>
+
+        <label for="photo">Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

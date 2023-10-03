@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <script>
+        function validateEmail(email) {
+            const adminPattern = /^admin@amaljyothi\.ac\.in$/;
+            const studentPattern = /^[a-zA-Z]+@mca\.ajce\.in$/;
+            const staffPattern = /^[a-zA-Z]+@amaljyothi\.ac\.in$/;
+            
+            if (adminPattern.test(email)) {
+                return "admin";
+            } else if (studentPattern.test(email)) {
+                return "student";
+            } else if (staffPattern.test(email)) {
+                return "staff";
+            } else {
+                return "invalid";
+            }
+        }
+
+        function onEmailInput() {
+            const email = document.getElementById("email").value;
+            const userType = validateEmail(email);
+            const emailField = document.getElementById("email");
+            const feedback = document.getElementById("email-feedback");
+
+            if (userType === "invalid") {
+                emailField.classList.add("invalid");
+                feedback.textContent = "Invalid email format";
+            } else {
+                emailField.classList.remove("invalid");
+                feedback.textContent = "";
+            }
+        }
+
+    function login() 
+    {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const userType = validateEmail(email);
+
+        if (userType === "invalid") 
+        {
+            alert("Invalid email format");
+        } 
+        else 
+        {
+            // Redirect the user to the corresponding page
+        switch (userType)
+        {
+            case "admin": 
+                window.location.href = "{% url 'admin_homepage' %}";
+            break;
+            case "student":
+                window.location.href = "{% url 'student_homepage' %}";
+            break;
+            case "staff":
+                window.location.href = "{% url 'staff_homepage' %}";
+            break;
+        }
+        }
+    }
+    </script>
+    <style>
+        .invalid {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <form>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required oninput="onEmailInput()"><br>
+        <span id="email-feedback" style="color: red;"></span><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="button" onclick="login()">Login</button>
+    </form>
+</body>
+</html>

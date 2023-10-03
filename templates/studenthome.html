@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Homepage</title>
+<style>
+        /* Add some basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: rgb(107, 177, 243);
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+
+        <a href="student_home.html">Home</a>
+        <a href="profile.html">Your Profile</a>
+        <a href="logout.php">Logout</a> <!-- Use PHP or another server-side language for session management -->
+
+    </nav>
+
+        <!-- Dashboard -->
+<div class="dashboard">
+    <!-- Search for Book Section -->
+    <h2>Search for Book</h2>
+    <label for="bookSearch">Accession Number or  Author and Title:</label>
+    <input type="text" id="bookSearch" placeholder="Enter search terms">
+    <button onclick="searchBook()">Search</button>
+
+    <!-- Borrowing Section -->
+    <h2>Borrowing</h2>
+    <ul id="borrowedBooksList">
+        <!-- Display list of borrowed books here -->
+    </ul>
+
+    <!-- Return Section -->
+    <h2>Return</h2>
+    <label for="returnBook">Select book to return:</label>
+    <select id="returnBook">
+        <!-- Populate with borrowed books dynamically -->
+    </select>
+    <button onclick="returnBook()">Return</button>
+
+    <!-- Reservation Section -->
+    <h2>Reservation</h2>
+    <label for="reserveBook">Select book to reserve:</label>
+    <select id="reserveBook">
+        <!-- Populate with books that are fully borrowed -->
+    </select>
+    <button onclick="reserveBook()">Reserve</button>
+
+    <!-- Request New Study Material Section -->
+    <h2>Request New Study Material</h2>
+    <label for="newMaterialTitle">Title of Book:</label>
+    <input type="text" id="newMaterialTitle">
+    <label for="newMaterialAuthor">Author:</label>
+    <input type="text" id="newMaterialAuthor">
+    <label for="newMaterialPublisher">Publisher:</label>
+    <input type="text" id="newMaterialPublisher">
+    <label for="newMaterialSubject">Subject:</label>
+    <input type="text" id="newMaterialSubject">
+    <button onclick="requestNewMaterial()">Request</button>
+</div>
+
+<script>
+    // JavaScript functions to handle dashboard functionalities
+
+    // Function to search for books
+    function searchBook() {
+        // Implement book search logic here
+        // Display search results or handle errors
+    }
+
+    // Function to borrow a book
+    function borrowBook() {
+        // Implement book borrowing logic here
+        // Update the borrowedBooksList
+    }
+
+    // Function to return a book
+    function returnBook() {
+        // Implement book return logic here
+        // Update the borrowedBooksList
+    }
+
+    // Function to make a reservation
+    function reserveBook() {
+        // Implement reservation logic here
+        // Update the reserved books list
+    }
+
+    // Function to request new study material
+    function requestNewMaterial() {
+        // Implement request for new study material logic here
+        // Display success message or handle errors
+    }
+</script>
+
+
+</body>
+</html>
